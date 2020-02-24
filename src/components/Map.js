@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
-
+import * as restaurantData from './data/restaurant.json';
 
 const mapStyles = {
     width: '100%',
@@ -31,14 +31,13 @@ export class MapContainer extends Component {
         }
     }
     render() {
-        return ( <
-            Map google = { this.props.google }
-            zoom = { 8 }
-            style = { mapStyles }
-            initialCenter = {
+        return (<
+            Map google={this.props.google}
+            zoom={8}
+            style={mapStyles}
+            initialCenter={
                 { lat: 22.572645, lng: 88.363892 }
-            }
-            />
+            } />
 
         );
     }
