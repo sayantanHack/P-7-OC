@@ -3,8 +3,8 @@ import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import * as restaurantData from './data/restaurant.json';
 
 const mapStyles = {
-    width: '100%',
-    height: '70%'
+    width: '70%',
+    height: '100%'
 };
 
 export class MapContainer extends Component {

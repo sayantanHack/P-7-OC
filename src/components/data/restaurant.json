@@ -1,5 +1,5 @@
-{
-    "restaurants": [{
+[   
+    {
         "id": 1,
         "name": "Golbarir Kosha Mangsho",
         "neighborhood": "Shyambazar, Kolkata",
@@ -389,5 +389,5 @@
                 "comments": "Food is good.But with day to day their services just are just  becoming poor and poor.You just dont get the royal treatment that was given previously."
             }
         ]
-    }]
-}
+    }
+]
