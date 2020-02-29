@@ -10,7 +10,16 @@ class BodyElement extends Component {
                 <div>
                     {
                         restaurants.map((restaurantData) => {
-                            return <h3> {restaurantData.name} </h3>
+                            return (
+                                <div className="box">
+                                    <h3> {restaurantData.name} </h3>
+                                    <p>
+                                        {restaurantData.address} ,
+                                        {restaurantData.neighborhood}
+                                    </p>
+                                </div>
+
+                            );
                         })
                     }
 
