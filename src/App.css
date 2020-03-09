@@ -24,6 +24,7 @@
     border: 2px solid darkblue;
     background-color: darkcyan;
     width: 80%;
+    height: auto;
     align-content: center;
     display: inline-block;
 }

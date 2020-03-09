@@ -22,7 +22,7 @@ export class MapContainer extends Component {
             showingInfoWindow: true
         });
 
-    onClose = props => {
+    onClose = (props) => {
         if (this.state.showingInfoWindow) {
             this.setState({
                 showingInfoWindow: false,
@@ -33,11 +33,12 @@ export class MapContainer extends Component {
     render() {
         return (<
             Map google={this.props.google}
-            zoom={8}
+            zoom={10}
             style={mapStyles}
             initialCenter={
-                { lat: 22.572645, lng: 88.363892 }
-            } />
+                { lat: 22.6072325, lng: 88.2825886 }
+            }
+        />
 
         );
     }
