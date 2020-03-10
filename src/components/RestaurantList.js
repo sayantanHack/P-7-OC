@@ -4,6 +4,7 @@ import restaurants from './data/restaurant.json';
 class RestaurantList extends Component{
     constructor(props){
         super(props);
+        this.addReview = this.addReview.bind(this);
         this.state = {
             //let restaurants = 
             //restaurants: this.props.restaurants
@@ -19,7 +20,7 @@ class RestaurantList extends Component{
     
     addReview(restaurantId, review){
         let restaurants= this.state.restaurants;
-       let restaurant = this.restaurants.select((id) => this.id = restaurantId)
+        let restaurant = this.restaurants.select((id) => this.id = restaurantId)
         let reviews = restaurant.reviews || [];
         reviews.push(review)
         restaurants.map((res) => {
@@ -33,7 +34,10 @@ class RestaurantList extends Component{
         return(
             <div>
                 <h3>Restaurants are here. Have a look.</h3>
-                                
+                <form>
+                    <input type="text" placeholder="add your reviews"></input>
+                    <button onClick={this.addReview}>Submit</button>
+                </form>              
             </div>
         )
     }
