@@ -8,6 +8,14 @@ const mapStyles = {
 };
 
 export class MapContainer extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            selectedPlace: props,     //Shows the infoWindow to the selected place upon a marker
+            activeMarker: {},     //Shows the active marker upon click
+            showingInfoWindow: false  //Hides or the shows the infoWindow
+        };
+    }
 /*
     state = {
         showingInfoWindow: false, //Hides or the shows the infoWindow
@@ -30,10 +38,9 @@ export class MapContainer extends Component {
                     </div>
                 </InfoWindow>
 */
-    onMarkerClick = (props, marker, e) =>
+    onMarkerClick = () =>
         this.setState({
-            selectedPlace: props,
-            activeMarker: marker,
+            //selectedPlace: restaurant,
             showingInfoWindow: true
         });
 
@@ -46,38 +53,34 @@ export class MapContainer extends Component {
         }
     }
     render() {
-        return (/*<
+        return (<
             Map google={this.props.google}
-            zoom={10}
+            zoom={12}
             style={mapStyles}
             initialCenter={
-                { lat: 22.6072325, lng: 88.2825886 }
-            }>
+                { lat: 22.5329854, lng: 88.384943 }
+            }
+            >
 
-                
-            </Map>*/
-            <Map google={this.props.google}
-    style={{width: '100%', height: '100%', position: 'relative'}}
-    className={'map'}
-    zoom={14}>
-  <Marker onClick={this.onMarkerClick}
-    title={'The marker`s title will appear as a tooltip.'}
-    name={'SOMA'}
-    position={{lat: 37.778519, lng: -122.405640}} />
-  <Marker onClick={this.onMarkerClick}
-    name={'Dolores park'}
-    position={{lat: 37.759703, lng: -122.428093}} />
-  
-  
-
-        <InfoWindow onClose={this.onInfoWindowClose}>
-            <div>
-              <h1>Hello Map</h1>
-            </div>
-        </InfoWindow>
-
-</Map>
-
+            {
+                restaurants.map((restaurantData)=>{
+                    return (
+                        <Marker onClick={this.onMarkerClick} title={restaurantData.name} 
+                        position={
+                            {lat: restaurantData.latlng.lat , lng: restaurantData.latlng.lng }
+                        } />
+                    )
+                })
+            }
+             
+            <InfoWindow marker= {this.state.activeMarker} visisble={this.state.showingInfoWindow} 
+            onClose={this.onClose}>
+                <div>
+                  <h1>Hello Map</h1>
+                </div>
+            </InfoWindow>
+            </Map>
+            
              
         );
     }
